@@ -1,100 +1,36 @@
 export default function Hero() {
-  // Dejalo vacío para conservar el fondo negro.
-  // Para usar un video: "/videos/hero.mp4"
-  const backgroundVideo = "/video/hero2.mp4";
-
   return (
-    <section
-      id="inicio"
-      className="relative flex min-h-[100svh] w-full items-center overflow-hidden bg-black px-6 pb-20 pt-28 text-white sm:px-8 md:px-12 lg:px-16 xl:px-20"
-    >
-      {/* Video de fondo opcional */}
-      {backgroundVideo && (
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 h-full w-full"
-        >
-          <source src={backgroundVideo} type="video/mp4" />
-        </video>
-      )}
+    <section id="inicio" className="relative isolate flex min-h-[100svh] flex-col justify-between overflow-hidden bg-[#080808] text-white">
+      <video autoPlay muted loop playsInline preload="metadata" poster="/logo-negro.png" aria-hidden="true" className="absolute inset-0 -z-20 h-full w-full object-cover opacity-35">
+        <source src="/video/hero2.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/55 via-black/40 to-[#080808]" />
+      <div className="pointer-events-none absolute -right-32 top-[18%] h-64 w-64 rounded-full border-[45px] border-[#2896a4]/50 blur-[1px] animate-float sm:h-[360px] sm:w-[360px] sm:border-[65px]" aria-hidden="true" />
+      <div className="pointer-events-none absolute bottom-[14%] -left-20 h-44 w-44 rounded-full bg-[#d13439]/20 blur-[70px]" aria-hidden="true" />
 
-      {/* Capa oscura para el video */}
-
-      {/* Círculo rojo */}
-      <div
-        className="
-          absolute
-          -right-32 top-[10%]
-          h-[220px] w-[220px]
-          rounded-full bg-[#d13439]
-          opacity-90
-          sm:-right-28 sm:h-[230px] sm:w-[230px]
-          md:-right-32 md:top-[8%] md:h-[300px] md:w-[300px]
-          lg:-right-24 lg:h-[360px] lg:w-[360px]
-        "
-        aria-hidden="true"
-      />
-
-      {/* Anillo celeste */}
-      <div
-        className="
-          absolute
-          -bottom-40 right-[-130px]
-          h-[310px] w-[310px]
-          rounded-full border-[52px] border-[#2896a4]
-          opacity-80
-          sm:-bottom-44 sm:right-[-70px]
-          sm:h-[380px] sm:w-[380px] sm:border-[64px]
-          md:-bottom-52 md:right-[4%]
-          md:h-[470px] md:w-[470px] md:border-[76px]
-          lg:-bottom-60 lg:right-[8%]
-          lg:h-[520px] lg:w-[520px] lg:border-[82px]
-        "
-        aria-hidden="true"
-      />
-
-      {/* Contenido principal */}
-      <div className="relative mt-30 z-10 mx-auto w-full max-w-[1440px]">
-        <div className="max-w-5xl">
-          <h1 className="max-w-3xl text-[12vw] font-black uppercase leading-[0.88] tracking-[-0.065em] sm:text-[10vw] md:text-[8vw] lg:text-[6.8vw] xl:text-[70px]">
-            Ideas +
-            <br />
-            tecnología.
-            <span className="mt-2 block text-[#ea3c3c]">
-              Resultados reales.
-            </span>
-          </h1>
-
-          <p className="mt-8 max-w-lg text-sm leading-6 text-white/60 sm:text-base sm:leading-7 md:mt-10 md:text-lg">
-            Transformo ideas en experiencias digitales que ayudan a marcas y
-            negocios a crecer.
-          </p>
-
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row md:mt-10">
-            <a
-              href="#proyectos"
-              className="group flex items-center justify-center gap-6 rounded-full bg-[#2896a4] px-7 py-3.5 text-sm font-semibold transition duration-300 hover:-translate-y-0.5 hover:bg-[#227f8b] sm:justify-between"
-            >
-              Ver proyectos
-              <span
-                className="transition-transform duration-300 group-hover:translate-x-1"
-                aria-hidden="true"
-              >
-                →
-              </span>
+      <div className="mx-auto flex w-full max-w-[1600px] flex-1 flex-col justify-center px-6 pb-20 pt-40 sm:px-10 lg:px-16 lg:pt-48">
+        <div className="animate-reveal flex flex-wrap items-center gap-3">
+          <span className="inline-block h-2 w-2 rounded-full bg-[#2896a4] shadow-[0_0_20px_#2896a4]" />
+          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/70 sm:text-xs">Diseño · Desarrollo · Estrategia digital</p>
+        </div>
+        <h1 className="animate-reveal-delay mt-9 max-w-[1250px] text-[clamp(3.5rem,10.5vw,10.5rem)] font-black uppercase leading-[.83] tracking-[-.075em]">
+          Ideas que <span className="block text-[#2896a4]">se hacen</span>
+          <span className="block">realidad<span className="text-[#ea743c]">.</span></span>
+        </h1>
+        <div className="mt-10 grid max-w-[1050px] gap-8 border-t border-white/20 pt-7 sm:grid-cols-[1fr_auto] sm:items-end">
+          <p className="max-w-xl text-base leading-relaxed text-white/70 sm:text-xl">Creo experiencias digitales con identidad, estrategia y tecnología para marcas que quieren ir más allá.</p>
+          <div className="flex flex-wrap gap-3">
+            <a href="#proyectos" className="group inline-flex items-center gap-8 rounded-full bg-[#2896a4] px-6 py-4 text-sm font-bold text-white transition hover:-translate-y-1 hover:bg-[#227f8b]">
+              Explorar proyectos <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">↗</span>
             </a>
-
-            <a
-              href="#contacto"
-              className="flex items-center justify-center rounded-full border border-white/25 px-7 py-3.5 text-sm font-semibold transition duration-300 hover:border-white/60 hover:bg-white hover:text-black"
-            >
-              Contame tu idea
-            </a>
+            <a href="#contacto" className="inline-flex items-center rounded-full border border-white/35 px-6 py-4 text-sm font-bold transition hover:border-white hover:bg-white hover:text-black">Hablemos</a>
           </div>
         </div>
+      </div>
+
+      <div className="mx-auto flex w-full max-w-[1600px] items-center justify-between border-t border-white/15 px-6 py-5 text-[10px] font-bold uppercase tracking-[.2em] text-white/45 sm:px-10 lg:px-16">
+        <span>Leonardo Web Services © 2026</span>
+        <a href="#sobre-mi" className="flex items-center gap-3 transition-colors hover:text-white">Deslizá para descubrir <span className="text-lg text-[#2896a4]" aria-hidden="true">↓</span></a>
       </div>
     </section>
   );
