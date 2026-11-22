@@ -2,122 +2,62 @@ import Image from "next/image";
 
 const projects = [
   {
-    number: "01",
-    title: "360 Construcciones",
-    category: "Diseño y desarrollo web",
-    description:
-      "Sitio corporativo para presentar los desarrollos inmobiliarios, obras y servicios de infraestructura de la empresa.",
-    image: "",
-    link: "#",
-    background: "from-[#062a47] to-[#2896a4]",
+    number: "01", title: "360 Construcciones", category: "Desarrollo web · Real estate",
+    description: "Una experiencia corporativa bilingüe para mostrar arquitectura, desarrollos y visión de marca.",
+    image: "", gradient: "from-[#062a47] via-[#104463] to-[#2896a4]", tag: "Sitio corporativo",
   },
   {
-    number: "02",
-    title: "Anfitrión Café",
-    category: "Identidad y experiencia digital",
-    description:
-      "Landing page para un servicio de café destinado a eventos, empresas y ocasiones especiales.",
-    image: "",
-    link: "#",
-    background: "from-[#3a2419] to-[#c38b5f]",
+    number: "02", title: "Anfitrión Café", category: "Landing page · Experiencia de marca",
+    description: "Una presencia digital que traduce el universo de una marca en una experiencia atractiva y cercana.",
+    image: "", gradient: "from-[#302018] via-[#6c4630] to-[#c38b5f]", tag: "Brand experience",
   },
   {
-    number: "03",
-    title: "ACSA",
-    category: "Plataforma corporativa",
-    description:
-      "Sitio institucional con publicación de búsquedas laborales y un sistema para recibir postulaciones.",
-    image: "",
-    link: "#",
-    background: "from-[#4a1013] to-[#d13439]",
+    number: "03", title: "ACSA", category: "Web corporativa · Talento",
+    description: "Comunicación de servicios y una experiencia de postulaciones pensada para conectar personas y oportunidades.",
+    image: "", gradient: "from-[#401518] via-[#842c33] to-[#d13439]", tag: "Solución digital",
   },
 ];
 
 export default function Projects() {
   return (
-    <section
-      id="proyectos"
-      className="bg-[#080808] px-6 py-24 text-white md:px-10 md:py-32 lg:px-16 lg:py-40"
-    >
+    <section id="proyectos" className="bg-[#090909] px-6 py-24 text-white sm:px-10 md:py-32 lg:px-16 lg:py-40">
       <div className="mx-auto max-w-[1500px]">
-        <div className="flex items-start gap-4">
-          <span className="text-xs font-black text-[#2896a4]">02</span>
-
-          <p className="text-xs font-black uppercase tracking-[0.18em]">
-            Proyectos
-          </p>
+        <div className="flex flex-wrap items-center justify-between gap-5 border-b border-white/20 pb-5">
+          <p className="flex items-center gap-4 text-xs font-black uppercase tracking-[.22em]"><span className="text-[#2896a4]">02 /</span> Trabajo seleccionado</p>
+          <span className="text-[10px] uppercase tracking-[.18em] text-white/40">Proyectos con identidad</span>
         </div>
-
-        <h2 className="mt-12 max-w-5xl text-[14vw] font-black uppercase leading-[0.85] tracking-[-0.075em] sm:text-[11vw] lg:text-[100px]">
-          Trabajo
-          <span className="block">
-            seleccionado<span className="text-[#2896a4]">.</span>
-          </span>
-        </h2>
-
-        <div className="mt-20 md:mt-28">
-          {projects.map((project) => (
-            <article
-              key={project.number}
-              className="grid gap-8 border-t border-white/20 py-12 lg:grid-cols-[1.35fr_0.65fr] lg:gap-16 lg:py-16"
-            >
-              <div
-                className={`group relative aspect-[16/10] overflow-hidden bg-gradient-to-br ${project.background}`}
-              >
+        <div className="grid gap-8 py-14 lg:grid-cols-[1.5fr_.5fr] lg:items-end">
+          <h2 className="max-w-5xl text-[clamp(3.2rem,9vw,8.6rem)] font-black uppercase leading-[.87] tracking-[-.075em]">Ideas que <span className="text-[#2896a4]">dejan</span><br />huella<span className="text-[#ea743c]">.</span></h2>
+          <p className="max-w-xs text-base leading-relaxed text-white/55 lg:pb-3">Cada proyecto es una oportunidad para hacer algo distinto, útil y memorable.</p>
+        </div>
+        <div className="grid gap-7 lg:grid-cols-2">
+          {projects.map((project, index) => (
+            <article key={project.number} className={"group overflow-hidden border border-white/15 bg-[#131313] " + (index === 0 ? "lg:col-span-2" : "")}>
+              <div className={"relative isolate overflow-hidden bg-gradient-to-br " + project.gradient + (index === 0 ? " aspect-[16/10] sm:aspect-[2.35/1]" : " aspect-[16/11]")}>
                 {project.image ? (
-                  <Image
-                    src={project.image}
-                    alt={`Captura del proyecto ${project.title}`}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 65vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  />
+                  <Image src={project.image} alt={"Vista del proyecto " + project.title} fill sizes={index === 0 ? "100vw" : "(max-width: 1024px) 100vw, 50vw"} className="object-cover transition duration-700 group-hover:scale-105" />
                 ) : (
-                  <div className="flex h-full flex-col items-center justify-center">
-                    <span className="text-[24vw] font-black leading-none text-white/10 lg:text-[150px]">
-                      {project.number}
-                    </span>
-
-                    <p className="mt-3 text-[10px] font-black uppercase tracking-[0.2em] text-white/65">
-                      Captura del proyecto
-                    </p>
-                  </div>
+                  <>
+                    <div className="absolute -right-16 -top-24 h-72 w-72 rounded-full border-[55px] border-white/10 transition duration-700 group-hover:rotate-45 sm:h-96 sm:w-96" aria-hidden="true" />
+                    <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-10">
+                      <span className="w-fit rounded-full border border-white/30 bg-black/10 px-4 py-2 text-[10px] font-bold uppercase tracking-[.18em] backdrop-blur-md">{project.tag}</span>
+                      <span className="max-w-[90%] break-words text-[clamp(2.4rem,6vw,7rem)] font-black uppercase leading-[.85] tracking-[-.065em]">{project.title}</span>
+                    </div>
+                  </>
                 )}
-
-                <div className="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-[#ea743c] transition-transform duration-500 group-hover:scale-x-100" />
+                <span className="absolute bottom-0 left-0 h-1 w-0 bg-[#ea743c] transition-[width] duration-700 group-hover:w-full" aria-hidden="true" />
               </div>
-
-              <div className="flex flex-col justify-between">
+              <div className="grid gap-5 p-6 sm:p-9 lg:grid-cols-[1fr_.85fr] lg:gap-8">
                 <div>
-                  <p className="text-xs font-black uppercase tracking-[0.15em] text-[#2896a4]">
-                    {project.category}
-                  </p>
-
-                  <h3 className="mt-4 text-4xl font-black leading-none tracking-[-0.05em] md:text-5xl lg:text-6xl">
-                    {project.title}
-                  </h3>
+                  <p className="mb-3 text-[10px] font-bold uppercase tracking-[.2em] text-[#2896a4]">{project.category}</p>
+                  <h3 className="text-3xl font-black tracking-[-.05em] sm:text-4xl">{project.title}</h3>
                 </div>
-
-                <p className="my-8 max-w-lg text-sm leading-relaxed text-white/55 md:text-base">
-                  {project.description}
-                </p>
-
-                <a
-                  href={project.link}
-                  className="group flex items-center justify-between border-b border-white/30 pb-4 text-xs font-black uppercase tracking-[0.15em] transition-colors hover:border-[#ea743c] hover:text-[#ea743c]"
-                >
-                  Ver proyecto
-                  <span
-                    className="text-xl transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
-                    aria-hidden="true"
-                  >
-                    ↗
-                  </span>
-                </a>
+                <p className="text-sm leading-relaxed text-white/55 sm:text-base">{project.description}</p>
               </div>
             </article>
           ))}
         </div>
+        <p className="mt-7 text-xs text-white/40">Las capturas reales de los proyectos se incorporarán próximamente.</p>
       </div>
     </section>
   );
