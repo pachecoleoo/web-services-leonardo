@@ -31,7 +31,7 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="bg-[#080808] px-6 py-24 text-white md:px-10 md:py-32 lg:px-16 lg:py-40">
+    <section id="proceso" className="bg-[#080808] px-6 py-24 text-white md:px-10 md:py-32 lg:px-16 lg:py-40">
       <div className="mx-auto max-w-[1500px]">
         <div className="flex items-start gap-4">
           <span className="text-xs font-black text-[#2896a4]">04</span>
