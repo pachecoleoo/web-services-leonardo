@@ -17,13 +17,8 @@ const socialLinks = [
     icon: <InstagramIcon />,
   },
   {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/TUUSUARIO",
-    icon: <LinkedInIcon />,
-  },
-  {
     label: "GitHub",
-    href: "https://github.com/TUUSUARIO",
+    href: "https://github.com/pachecoleoo",
     icon: <GitHubIcon />,
   },
 ];
